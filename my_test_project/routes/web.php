@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('', 'App\Http\Controllers\Controller@index');
+Route::post('create', 'App\Http\Controllers\Controller@create');
+Route::post('update', 'App\Http\Controllers\Controller@update')->name('article.update');
+Route::delete('{id}', 'App\Http\Controllers\Controller@delete')->name('article.delete');
