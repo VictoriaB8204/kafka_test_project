@@ -41,19 +41,6 @@ class Controller extends BaseController
         ];
     }
 
-    public function show($id){
-        $apiResponse = ApiService::getArticle($id);
-        return [
-            'article' => $apiResponse->response ? view('card', [
-                'article' => $apiResponse->response,
-            ])->render() : '',
-            'toast' => view('toast', [
-                'message' => $apiResponse->message,
-                'success' => $apiResponse->success,
-            ])->render()
-        ];
-    }
-
     public function update(Request $request){
         $apiResponse = ApiService::updateArticle($request);
         return [
